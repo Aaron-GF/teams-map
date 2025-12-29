@@ -3,7 +3,10 @@ import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Teams Map",
+  title: {
+    default: "Teams Map",
+    template: "%s | Teams Map",
+  },
   description:
     "Aplicación que muestra información sobre los equipos de fútbol de categorías infantiles de Galicia usando un mapa interactivo dividido por municipios.",
 };

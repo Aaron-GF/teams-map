@@ -1,4 +1,5 @@
 import { getConcello } from "@/lib/data";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -6,6 +7,17 @@ interface PageProps {
   params: Promise<{
     slug: string;
   }>;
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const concello = getConcello(slug);
+
+  return {
+    title: concello ? concello.name : "Concello no encontrado",
+  };
 }
 
 export default async function ConcelloPage({ params }: PageProps) {
@@ -27,7 +39,7 @@ export default async function ConcelloPage({ params }: PageProps) {
     <>
       {/* Header */}
       <header className="relative w-full h-[40vh] bg-linear-to-b from-dark-blue to-[#0f2a5a] overflow-hidden flex flex-col justify-center items-center text-center">
-        <div className="absolute top-8 right-8 z-20">
+        <div className="absolute top-8 left-8 z-20">
           <Link
             href="/"
             className="group flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md hover:bg-red-celta text-white rounded-xl transition-all border border-white/10"
