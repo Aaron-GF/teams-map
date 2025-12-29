@@ -16,7 +16,7 @@ export default function Footer() {
             </Link>
             <p className="text-sm text-blue-celta/80 leading-relaxed font-medium">
               Explorando el fútbol base de Galicia municipio a municipio.
-              Descubre los clubes y categorías infantiles de nuestra tierra.
+              Descubre los clubes y categorías infantiles.
             </p>
           </div>
 
@@ -33,13 +33,17 @@ export default function Footer() {
                 Mapa Interactivo
               </Link>
               <Link
-                href="#"
+                href="https://github.com/Aaron-GF/teams-map"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-white/70 hover:text-blue-celta transition-colors"
               >
                 Sobre el Proyecto
               </Link>
               <Link
-                href="#"
+                href="www.linkedin.com/in/aaron-garcia-fernandez"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-sm text-white/70 hover:text-blue-celta transition-colors"
               >
                 Contacto
@@ -54,7 +58,11 @@ export default function Footer() {
             </h4>
             <p className="text-sm text-white/70 leading-normal">
               App desarrollada por{" "}
-              <Link href="https://github.com/Aaron-GF">
+              <Link
+                href="https://github.com/Aaron-GF"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <span className="text-blue-celta">Aaron-GF</span>
               </Link>
             </p>
@@ -62,15 +70,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/20 flex flex-col md:row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-celta/60">
-            © {currentYear} Teams Map
+            © {currentYear} Teams Map -{" "}
+            <a
+              href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-celta hover:text-blue-celta/80 transition-colors"
+              title="Licencia Creative Commons BY-NC-SA 4.0"
+            >
+              CC BY-NC-SA 4.0
+            </a>
           </p>
-          <div className="flex items-center gap-6">
-            <span className="text-[8px] font-black uppercase tracking-[0.3em] text-white/40">
-              Galicia · Deporte · Base
-            </span>
-          </div>
+          <span className="text-[8px] font-black uppercase tracking-[0.3em] text-white/40">
+            Galicia · Deporte · Base
+          </span>
         </div>
       </div>
     </footer>

@@ -24,7 +24,7 @@ export default async function ConcelloPage({ params }: PageProps) {
   ];
 
   return (
-    <div className="font-sans">
+    <>
       {/* Header */}
       <header className="relative w-full h-[40vh] bg-linear-to-b from-dark-blue to-[#0f2a5a] overflow-hidden flex flex-col justify-center items-center text-center">
         <div className="absolute top-8 right-8 z-20">
@@ -66,16 +66,16 @@ export default async function ConcelloPage({ params }: PageProps) {
                 <span className="text-red-celta">#</span>
                 Clubes de Fútbol
               </h3>
-              <div className="h-px flex-1 mx-8 bg-linear-to-r from-[#87ADCE]/20 to-transparent" />
+              <div className="h-px flex-1 mx-8 bg-linear-to-r from-blue-celta/20 to-transparent" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {clubs.map((club, i) => (
                 <div
                   key={i}
-                  className="group bg-gray-50 rounded-3xl p-6 border border-gray-100 transition-all hover:bg-[#87ADCE]/5 hover:border-[#87ADCE]/30 hover:scale-[1.02] flex items-center gap-6 cursor-pointer"
+                  className="group bg-gray-50 rounded-3xl p-6 border border-gray-100 transition-all hover:bg-blue-celta/5 hover:border-blue-celta/30 hover:scale-[1.02] flex items-center gap-6 cursor-pointer"
                 >
-                  <div className="size-16 rounded-2xl shadow-sm flex items-center justify-center border border-gray-100 group-hover:border-[#87ADCE]/20 transition-colors">
+                  <div className="size-16 rounded-2xl shadow-sm flex items-center justify-center border border-gray-100 group-hover:border-blue-celta/20 transition-colors">
                     {/* Logo simplificado */}
                     <div className="size-8 rounded-full bg-linear-to-br from-blue-celta to-dark-blue opacity-20" />
                   </div>
@@ -93,6 +93,6 @@ export default async function ConcelloPage({ params }: PageProps) {
           </section>
         </div>
       </main>
-    </div>
+    </>
   );
 }
