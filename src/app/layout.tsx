@@ -20,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body>
+      <body className="bg-gray-50 min-h-screen">
         <Providers>
           <Navbar />
-          {children}
+          <div className="pt-24 md:pt-28">{children}</div>
           <Footer />
         </Providers>
       </body>

@@ -36,26 +36,11 @@ export default async function ConcelloPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Header */}
-      <header className="relative w-full h-[40vh] bg-linear-to-b from-dark-blue to-[#0f2a5a] overflow-hidden flex flex-col justify-center items-center text-center">
-        <div className="absolute top-8 left-8 z-20">
-          <Link
-            href="/"
-            className="group flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md hover:bg-red-celta text-white rounded-xl transition-all border border-white/10"
-          >
-            <span className="text-lg transition-transform group-hover:-translate-x-1">
-              ←
-            </span>
-            <span className="text-[10px] font-black uppercase tracking-widest">
-              Volver
-            </span>
-          </Link>
-        </div>
-
+      <header className="relative w-full h-[35vh] bg-linear-to-b from-dark-blue to-[#0f2a5a] overflow-hidden flex flex-col justify-center items-center text-center">
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-3">
             <div className="w-12 h-[2px] bg-red-celta" />
-            <span className="text-blue-celta uppercase tracking-[0.3em] text-xs">
+            <span className="text-blue-celta uppercase tracking-[0.3em] text-xs font-black">
               Concello de Galicia
             </span>
             <div className="w-12 h-[2px] bg-red-celta" />

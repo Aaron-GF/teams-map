@@ -99,8 +99,6 @@ export function getPlayersForClub(clubId: string): Player[] {
       rating: 10,
       description:
         "Capitán y leyenda del club. Máxima eficacia goleadora y visión de juego excepcional.",
-      imageUrl:
-        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?q=80&w=200&auto=format&fit=crop",
     },
     {
       id: "2",

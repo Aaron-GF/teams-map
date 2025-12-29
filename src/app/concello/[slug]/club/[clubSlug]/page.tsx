@@ -42,35 +42,28 @@ export default async function ClubPage({ params }: PageProps) {
   const players = getPlayersForClub(clubSlug);
 
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col items-center">
-      {/* Mini Header / Navigation */}
-      <div className="w-full bg-dark-blue py-12 px-6 flex flex-col items-center text-center gap-4 shadow-2xl">
-        <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-6">
-          <Link
-            href={`/concello/${slug}`}
-            className="group flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-xl transition-all border border-white/10"
-          >
-            ← Volver al municipio
-          </Link>
+    <main className="min-h-screen bg-transparent flex flex-col items-center">
+      <div className="max-w-5xl w-full px-6 py-8 flex flex-col gap-10">
+        <div className="flex items-center gap-4 text-sm font-bold text-gray-400 mb-2">
+          <span className="text-blue-celta uppercase tracking-[0.2em]">
+            {concello.name}
+          </span>
+          <span className="opacity-30">/</span>
+          <span className="text-dark-blue uppercase tracking-[0.2em]">
+            {club.name}
+          </span>
+        </div>
 
-          <div className="flex flex-col items-center md:items-end">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-gray-100 pb-8">
+          <div className="flex flex-col gap-2">
             <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
               Plantilla de jugadores
             </span>
-            <h1 className="text-2xl md:text-4xl text-white uppercase tracking-tighter">
+            <h1 className="text-4xl md:text-6xl text-dark-blue uppercase tracking-tighter leading-none">
               {club.name}
             </h1>
           </div>
-        </div>
-      </div>
-
-      <div className="max-w-5xl w-full px-6 py-16 flex flex-col gap-10">
-        <div className="flex items-center justify-between">
-          <h2 className="text-3xl text-dark-blue uppercase tracking-tighter flex items-center gap-3">
-            <span className="text-red-celta">#</span>
-            Listado de Jugadores
-          </h2>
-          <span className="text-sm font-bold text-gray-400">
+          <span className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-gray-100 text-sm font-bold text-dark-blue/60">
             {players.length} {players.length === 1 ? "jugador" : "jugadores"}{" "}
             registrados
           </span>
