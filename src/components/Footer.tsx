@@ -15,8 +15,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-blue-celta/80 leading-relaxed font-medium">
-              Explorando el fútbol base de Galicia municipio a municipio.
-              Descubre los clubes y categorías infantiles.
+              La información sobre los clubes y jugadores de fútbol base de Galicia en esta web solo esta disponible para usuarios administradores.
             </p>
           </div>
 
