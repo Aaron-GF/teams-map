@@ -88,3 +88,45 @@ export async function createPlayer(formData: FormData) {
   revalidatePath("/");
   return { success: true };
 }
+
+export async function deletePlayer(playerId: string, imageUrl?: string | null) {
+  // 1. Borrar imagen del Storage si existe
+  if (imageUrl && imageUrl.includes("player-photos")) {
+    const fileName = imageUrl.split("/").pop();
+    if (fileName) {
+      await supabase.storage.from("player-photos").remove([fileName]);
+    }
+  }
+
+  // 2. Borrar de la Base de Datos
+  const { error } = await supabase.from("players").delete().eq("id", playerId);
+
+  if (error) {
+    console.error("Error al borrar jugador:", error);
+    return { success: false, error: error.message };
+  }
+
+  revalidatePath("/admin/gestion");
+  revalidatePath("/admin/filtros");
+  revalidatePath("/");
+  return { success: true };
+}
+
+export async function deleteClub(clubId: string) {
+  const { error } = await supabase.from("clubs").delete().eq("id", clubId);
+
+  if (error) {
+    console.error("Error al borrar club:", error);
+    return {
+      success: false,
+      error: error.message.includes("foreign key")
+        ? "No se puede eliminar el club porque tiene jugadores asociados. Elimina primero a los jugadores."
+        : error.message,
+    };
+  }
+
+  revalidatePath("/admin/gestion");
+  revalidatePath("/admin/filtros");
+  revalidatePath("/");
+  return { success: true };
+}

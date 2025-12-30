@@ -1,4 +1,5 @@
 import { Player } from "@/lib/data";
+import DeletePlayerButton from "./DeletePlayerButton";
 
 interface PlayerCardProps {
   player: Player;
@@ -26,9 +27,16 @@ export default function PlayerCard({ player }: PlayerCardProps) {
       {/* Información del Jugador */}
       <div className="flex-1 flex flex-col gap-6">
         <div className="border-b border-gray-100 pb-4">
-          <h4 className="text-2xl md:text-3xl font-black text-dark-blue uppercase tracking-tighter">
-            {player.name}
-          </h4>
+          <div className="flex justify-between items-start gap-4">
+            <h4 className="text-2xl md:text-3xl font-black text-dark-blue uppercase tracking-tighter">
+              {player.name}
+            </h4>
+            <DeletePlayerButton
+              playerId={player.id}
+              playerName={player.name}
+              imageUrl={player.imageUrl}
+            />
+          </div>
           <div className="flex flex-wrap gap-2 mt-2">
             <span className="px-3 py-1 bg-blue-celta/10 text-blue-celta rounded-full text-[10px] font-black uppercase tracking-widest">
               {player.position}

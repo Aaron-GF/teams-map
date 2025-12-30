@@ -47,12 +47,20 @@ export default async function AdminGestionPage() {
                 asigna su municipio correspondiente.
               </p>
             </div>
-            <Link
-              href="/admin/gestion/club"
-              className="mt-4 w-full py-4 bg-dark-blue text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-celta transition-all text-center"
-            >
-              Ir a Formulario de Clubes
-            </Link>
+            <div className="flex flex-col gap-3 mt-4">
+              <Link
+                href="/admin/gestion/club"
+                className="w-full py-4 bg-dark-blue text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-celta transition-all text-center"
+              >
+                Añadir Nuevo Club
+              </Link>
+              <Link
+                href="/admin/gestion/club/list"
+                className="w-full py-4 bg-gray-50 text-dark-blue border border-gray-100 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-gray-100 transition-all text-center"
+              >
+                Ver Listado y Eliminar
+              </Link>
+            </div>
           </section>
 
           {/* Sección Añadir Jugador */}
