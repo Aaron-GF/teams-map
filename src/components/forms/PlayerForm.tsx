@@ -34,7 +34,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
   }
 
   return (
-    <div className="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-2xl border border-gray-100">
+    <div className="bg-white rounded-5xl p-4 md:p-14 shadow-2xl border border-gray-100">
       <form
         id="player-form"
         action={handleSubmit}
@@ -49,7 +49,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               name="name"
               type="text"
               required
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
             />
           </div>
 
@@ -61,7 +61,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               name="clubId"
               required
               defaultValue=""
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
             >
               <option value="" disabled>
                 Selecciona club
@@ -84,7 +84,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               name="birthDate"
               type="date"
               required
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
             />
           </div>
 
@@ -96,7 +96,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               name="position"
               required
               defaultValue=""
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
             >
               <option value="" disabled>
                 Selecciona posición
@@ -125,7 +125,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
                     className="hidden peer"
                     required
                   />
-                  <div className="py-4 text-center rounded-2xl text-[10px] font-black uppercase tracking-widest border border-gray-100 bg-gray-50 peer-checked:bg-dark-blue peer-checked:text-white peer-checked:border-dark-blue transition-all">
+                  <div className="py-4 text-center rounded-xl text-[10px] font-black uppercase tracking-widest border border-gray-100 bg-gray-50 peer-checked:bg-dark-blue peer-checked:text-white peer-checked:border-dark-blue transition-all">
                     {foot}
                   </div>
                 </label>
@@ -147,7 +147,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
                     className="hidden peer"
                     required
                   />
-                  <div className="aspect-square flex items-center justify-center rounded-xl text-[10px] font-black border border-gray-100 bg-gray-50 peer-checked:bg-blue-celta peer-checked:text-white peer-checked:border-blue-celta transition-all">
+                  <div className="aspect-square flex items-center justify-center rounded-lg text-[10px] font-black border border-gray-100 bg-gray-50 peer-checked:bg-blue-celta peer-checked:text-white peer-checked:border-blue-celta transition-all">
                     {num}
                   </div>
                 </label>
@@ -179,13 +179,13 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
             placeholder="Añade una breve descripción sobre el jugador..."
             required
             rows={4}
-            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-3xl text-sm font-bold text-dark-blue placeholder:text-gray-300 focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden resize-none"
+            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue placeholder:text-gray-300 focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden resize-none"
           />
         </div>
 
         {message && (
           <div
-            className={`p-4 rounded-2xl text-xs font-bold uppercase tracking-widest text-center ${
+            className={`p-4 rounded-xl text-xs font-bold uppercase tracking-widest text-center ${
               message.type === "success"
                 ? "bg-green-50 text-green-600 border border-green-100"
                 : "bg-red-50 text-red-600 border border-red-100"
@@ -199,7 +199,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-5 bg-dark-blue text-white rounded-4xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-dark-blue/20 hover:bg-blue-celta transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-5 bg-dark-blue text-white rounded-3xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-dark-blue/20 hover:bg-blue-celta transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Registrando..." : "Registrar Jugador"}
           </button>

@@ -4,7 +4,7 @@ export default function GestionButton() {
   return (
     <Link
       href="/admin/gestion"
-      className="flex items-center gap-2 px-6 py-2.5 bg-white/50 border border-white hover:border-blue-celta/30 hover:bg-white transition-all rounded-2xl shadow-sm group"
+      className="flex items-center gap-2 px-6 py-2.5 bg-white/50 border border-white hover:border-blue-celta/30 hover:bg-white transition-all rounded-xl shadow-sm group"
     >
       <div className="size-6 rounded-lg bg-linear-to-br from-blue-celta/10 to-dark-blue/10 flex items-center justify-center group-hover:scale-110 transition-transform">
         <svg

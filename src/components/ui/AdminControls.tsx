@@ -54,7 +54,7 @@ export default function AdminControls({
         onClick={() => setIsModalOpen(false)}
       />
 
-      <div className="relative w-full max-w-sm bg-white rounded-[2.5rem] p-10 shadow-2xl border border-white animate-in zoom-in-95 fade-in duration-300">
+      <div className="relative w-full max-w-sm bg-white rounded-5xl p-10 shadow-2xl border border-white animate-in zoom-in-95 fade-in duration-300">
         <button
           onClick={() => setIsModalOpen(false)}
           className="absolute top-8 right-8 text-gray-300 hover:text-dark-blue transition-colors p-2"
@@ -78,7 +78,7 @@ export default function AdminControls({
         <div className="flex flex-col items-center gap-8">
           <div className="relative">
             <div className="absolute inset-0 bg-blue-celta blur-2xl opacity-20 animate-pulse" />
-            <div className="relative size-20 bg-linear-to-br from-blue-celta/20 to-dark-blue/10 rounded-3xl flex items-center justify-center text-4xl shadow-inner">
+            <div className="relative size-20 bg-linear-to-br from-blue-celta/20 to-dark-blue/10 rounded-2xl flex items-center justify-center text-4xl shadow-inner">
               🔐
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function AdminControls({
           <button
             onClick={handleLogin}
             disabled={isLoading}
-            className="w-full py-4 bg-dark-blue hover:bg-blue-celta disabled:bg-gray-300 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-[10px] transition-all shadow-xl shadow-dark-blue/20 hover:shadow-blue-celta/30 active:scale-95 flex items-center justify-center gap-3 overflow-hidden group"
+            className="w-full py-4 bg-dark-blue hover:bg-blue-celta disabled:bg-gray-300 text-white rounded-xl font-black uppercase tracking-[0.2em] text-[10px] transition-all shadow-xl shadow-dark-blue/20 hover:shadow-blue-celta/30 active:scale-95 flex items-center justify-center gap-3 overflow-hidden group"
           >
             {isLoading ? (
               <div className="size-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -124,7 +124,7 @@ export default function AdminControls({
       <div className="flex items-center gap-3">
         {isAuthenticated ? (
           <>
-            <div className="flex items-center gap-3 px-3 py-1.5 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm transition-all hover:border-blue-celta/30 group">
+            <div className="flex items-center gap-3 px-3 py-1.5 bg-gray-50 rounded-xl border border-gray-100 shadow-sm transition-all hover:border-blue-celta/30 group">
               <div className="relative">
                 {userImage ? (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -150,7 +150,7 @@ export default function AdminControls({
             </div>
             <button
               onClick={handleLogout}
-              className="p-2.5 bg-white/5 backdrop-blur-lg hover:bg-red-celta/20 hover:text-red-celta text-gray-400 rounded-xl transition-all border border-white/10 shadow-sm group"
+              className="p-2.5 bg-white/5 backdrop-blur-lg hover:bg-red-celta/20 hover:text-red-celta text-gray-400 rounded-lg transition-all border border-white/10 shadow-sm group"
               title="Cerrar Sesión"
             >
               <svg
@@ -172,7 +172,7 @@ export default function AdminControls({
         ) : (
           <button
             onClick={() => setIsModalOpen(true)}
-            className="px-5 py-2.5 bg-dark-blue text-white rounded-2xl transition-all shadow-lg shadow-dark-blue/20 hover:shadow-blue-celta/30 hover:bg-blue-celta text-[10px] font-black uppercase tracking-widest group flex items-center gap-2"
+            className="px-5 py-2.5 bg-dark-blue text-white rounded-xl transition-all shadow-lg shadow-dark-blue/20 hover:shadow-blue-celta/30 hover:bg-blue-celta text-[10px] font-black uppercase tracking-widest group flex items-center gap-2"
           >
             <span className="group-hover:translate-x-1 transition-transform">
               🔐 Acceder

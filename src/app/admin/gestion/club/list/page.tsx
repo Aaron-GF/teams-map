@@ -16,7 +16,7 @@ export default async function ClubListPage() {
 
   return (
     <main className="min-h-[70vh] flex flex-col items-center">
-      <div className="max-w-4xl w-full px-6 py-12 flex flex-col gap-10">
+      <div className="max-w-4xl w-full px-2 md:px-6 py-12 flex flex-col gap-10">
         {/* Navegación de Vuelta */}
         <Link
           href="/admin/gestion"
@@ -39,7 +39,7 @@ export default async function ClubListPage() {
         </div>
 
         {/* Listado de Clubes */}
-        <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-4">
+        <div className="bg-white rounded-6xl p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-4">
           {allClubs.length > 0 ? (
             <div className="flex flex-col gap-2">
               {allClubs.map((club) => {

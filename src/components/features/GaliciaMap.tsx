@@ -10,7 +10,7 @@ export default function GaliciaMap() {
 
   return (
     <div className="w-full flex flex-col gap-6">
-      <div className="aspect-square w-full relative bg-gray-50 rounded-4xl shadow-2xl border border-gray-100 overflow-hidden group">
+      <div className="aspect-square w-full relative bg-gray-50 rounded-3xl shadow-2xl border border-gray-100 overflow-hidden group">
         <svg
           viewBox="0 0 10000 10000"
           className="size-full"

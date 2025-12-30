@@ -9,8 +9,8 @@ export default function Home() {
           Fútbol base en Galicia
         </h1>
         <p className="text-lg text-gray-600">
-          Explora la información detallada seleccionando mapa interactivo o
-          usando el buscador.
+          Explora la información detallada seleccionando el municipio en el mapa
+          interactivo o usando el buscador.
         </p>
       </div>
 

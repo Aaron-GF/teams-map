@@ -3,11 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-dark-blue: #1D428A;
+  --color-dark-blue: #1d428a;
 
   /* colores del escudo del celta de vigo */
-  --color-blue-celta: #8AC3EE;
-  --color-red-celta: #D50032;
+  --color-blue-celta: #8ac3ee;
+  --color-red-celta: #d50032;
 }
 
 @theme inline {
@@ -17,6 +17,10 @@
 
   --color-blue-celta: var(--color-blue-celta);
   --color-red-celta: var(--color-red-celta);
+
+  --radius-4xl: 1rem;
+  --radius-5xl: 1.5rem;
+  --radius-6xl: 2rem;
 }
 
 @layer base {
@@ -24,7 +28,8 @@
     @apply bg-background text-foreground;
   }
 
-  button, a {
+  button,
+  a {
     @apply cursor-pointer;
   }
 }

@@ -70,7 +70,7 @@ export default function SearchConcello() {
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="Busca el concello..."
-          className="w-full pl-14 pr-10 py-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-celta/50 focus:border-blue-celta transition-all text-dark-blue placeholder-gray-400 font-medium"
+          className="w-full pl-14 pr-10 py-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-xl shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-celta/50 focus:border-blue-celta transition-all text-dark-blue placeholder-gray-400 font-medium"
         />
         <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-celta transition-colors">
           <svg
@@ -92,7 +92,7 @@ export default function SearchConcello() {
 
       {/* Desplegable de sugerencias */}
       {isOpen && query.trim() !== "" && (
-        <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-xl border border-gray-100 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="absolute top-full mt-2 w-full bg-white/95 backdrop-blur-xl border border-gray-100 rounded-xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
           {suggestions.length > 0 ? (
             <ul className="divide-y divide-gray-50">
               {suggestions.map((c) => (

@@ -44,7 +44,7 @@ export default async function ClubPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col items-center">
-      <div className="max-w-5xl w-full px-6 py-8 flex flex-col gap-10">
+      <div className="max-w-5xl w-full px-2 md:px-6 py-8 flex flex-col gap-10">
         <div className="flex items-center gap-4 text-sm font-bold text-gray-400 mb-2">
           <span className="text-blue-celta uppercase tracking-[0.2em]">
             {concello.name}
@@ -76,7 +76,7 @@ export default async function ClubPage({ params }: PageProps) {
               <PlayerCard key={player.id} player={player} />
             ))
           ) : (
-            <div className="bg-white rounded-[2.5rem] p-20 shadow-xl border border-gray-100 flex flex-col items-center text-center gap-4">
+            <div className="bg-white rounded-5xl p-4 py-20 md:p-20 shadow-xl border border-gray-100 flex flex-col items-center text-center gap-4">
               <div className="size-20 bg-gray-50 rounded-3xl flex items-center justify-center text-4xl opacity-40">
                 📋
               </div>

@@ -16,7 +16,7 @@ export default async function AdminFiltersPage() {
 
   return (
     <main className="min-h-[70vh] flex flex-col items-center">
-      <div className="max-w-6xl w-full px-6 py-12 flex flex-col gap-12">
+      <div className="max-w-6xl w-full px-2 md:px-6 py-12 flex flex-col gap-12">
         {/* Sección de Cabecera */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">

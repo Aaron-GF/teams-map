@@ -7,10 +7,10 @@ interface PlayerCardProps {
 
 export default function PlayerCard({ player }: PlayerCardProps) {
   return (
-    <div className="w-full bg-white rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-gray-100 flex flex-col md:flex-row gap-8 transition-all hover:shadow-2xl hover:scale-[1.01]">
+    <div className="w-full bg-white rounded-5xl p-4 md:p-8 shadow-xl border border-gray-100 flex flex-col md:flex-row gap-8 transition-all hover:shadow-2xl hover:scale-[1.01]">
       {/* Foto/Avatar del Jugador */}
       <div className="relative shrink-0 flex justify-center md:block">
-        <div className="size-32 md:size-40 bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-inner flex items-center justify-center">
+        <div className="size-32 md:size-40 bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-inner flex items-center justify-center">
           {player.imageUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -79,7 +79,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
           </div>
         </div>
 
-        <div className="flex flex-col bg-gray-50/50 p-5 rounded-2xl border border-gray-100">
+        <div className="flex flex-col bg-gray-50/50 p-5 rounded-xl border border-gray-100">
           <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 italic">
             Descripción del Perfil
           </span>

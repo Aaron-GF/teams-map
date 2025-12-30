@@ -52,10 +52,10 @@ export default async function ConcelloPage({ params }: PageProps) {
       </header>
 
       {/* Contenido principal */}
-      <main className="max-w-6xl mx-auto w-full px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12 -mt-10 relative z-10">
+      <main className="max-w-6xl mx-auto w-full px-2 md:px-6 py-16 grid grid-cols-1 lg:grid-cols-3 gap-12 -mt-10 relative z-10">
         <div className="lg:col-span-3 flex flex-col gap-12">
           {/* Sección de clubes de fútbol */}
-          <section className="flex flex-col gap-8 bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100">
+          <section className="flex flex-col gap-8 bg-white rounded-6xl p-4 md:p-12 shadow-2xl border border-gray-100">
             <div className="flex items-center justify-between">
               <h2 className="text-3xl text-dark-blue uppercase tracking-tighter flex items-center gap-3">
                 <span className="text-red-celta">#</span>

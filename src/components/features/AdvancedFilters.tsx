@@ -60,7 +60,7 @@ export default function AdvancedFilters({
   return (
     <div className="flex flex-col gap-12">
       {/* Panel de Filtros */}
-      <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-white rounded-6xl p-4 md:p-12 shadow-2xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {/* Búsqueda por Nombre */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
@@ -71,7 +71,7 @@ export default function AdvancedFilters({
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
             />
             <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-blue-celta transition-colors">
               🔍
@@ -87,7 +87,7 @@ export default function AdvancedFilters({
           <select
             value={selectedClub}
             onChange={(e) => setSelectedClub(e.target.value)}
-            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
+            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
           >
             <option value="">Todos los clubes</option>
             {allClubs.map((club) => (
@@ -127,7 +127,7 @@ export default function AdvancedFilters({
               <button
                 key={foot}
                 onClick={() => setSelectedFoot(foot)}
-                className={`flex-1 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border ${
+                className={`flex-1 py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border ${
                   selectedFoot === foot
                     ? "bg-dark-blue text-white border-dark-blue shadow-lg shadow-dark-blue/20"
                     : "bg-gray-50 text-gray-400 border-gray-100 hover:bg-gray-100"
@@ -221,7 +221,7 @@ export default function AdvancedFilters({
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-[3rem] p-16 border border-dashed border-gray-200 flex flex-col items-center text-center gap-4">
+          <div className="bg-white rounded-6xl p-16 border border-dashed border-gray-200 flex flex-col items-center text-center gap-4">
             <span className="text-4xl text-gray-200">⚽</span>
             <div className="flex flex-col gap-1">
               <h4 className="text-lg font-black text-dark-blue uppercase tracking-tight">
