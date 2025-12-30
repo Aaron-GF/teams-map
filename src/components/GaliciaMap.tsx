@@ -4,10 +4,10 @@ import { useRouter } from "next/navigation";
 import municipalities from "@/data/municipalities.json";
 
 const COLOR_MAP: Record<string, string> = {
-  "15": "#87ADCE", 
-  "27": "#7399BD", 
-  "32": "#A5C4DF", 
-  "36": "#6CACE4", 
+  "15": "#87ADCE",
+  "27": "#7399BD",
+  "32": "#A5C4DF",
+  "36": "#6CACE4",
 };
 
 const PROVINCE_NAMES: Record<string, string> = {
@@ -21,8 +21,8 @@ export default function GaliciaMap() {
   const router = useRouter();
 
   return (
-    <div className="w-full max-w-4xl mx-auto flex flex-col gap-6">
-      <div className="aspect-square w-full relative bg-gray-50 rounded-xl shadow-2xl border border-gray-100 overflow-hidden group">
+    <div className="w-full flex flex-col gap-6">
+      <div className="aspect-square w-full relative bg-gray-50 rounded-4xl shadow-2xl border border-gray-100 overflow-hidden group">
         <svg
           viewBox="0 0 10000 10000"
           className="size-full"
