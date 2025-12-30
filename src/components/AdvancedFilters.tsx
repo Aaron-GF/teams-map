@@ -69,10 +69,9 @@ export default function AdvancedFilters({
           <div className="relative group">
             <input
               type="text"
-              placeholder="Ej: Iago Aspas..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue placeholder:text-gray-300 focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden"
             />
             <span className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-blue-celta transition-colors">
               🔍
@@ -229,7 +228,7 @@ export default function AdvancedFilters({
                 Sin coincidencias
               </h4>
               <p className="text-gray-400 text-sm font-medium">
-                No hemos encontrado jugadores que cumplan todos los criterios.{" "}
+                No se han encontrado jugadores que cumplan con los criterios.{" "}
                 <br />
                 Prueba a flexibilizar los filtros.
               </p>

@@ -1,3 +1,4 @@
+import { supabase } from "./supabase";
 import municipalitiesData from "@/data/municipalities.json";
 
 export interface Concello {
@@ -9,6 +10,7 @@ export interface Club {
   id: string;
   name: string;
   category: string;
+  division: string;
   concelloId: string;
 }
 
@@ -24,7 +26,7 @@ export interface Player {
   imageUrl?: string;
 }
 
-// Map the generated JSON to the Concello interface and sort alphabetically
+// Concellos are static local data
 const allConcellos: Concello[] = municipalitiesData
   .map((m: any) => ({
     id: m.id,
@@ -38,125 +40,114 @@ export function getConcello(id: string): Concello | undefined {
   return concellos.find((c) => c.id === id);
 }
 
-// Mock Database
-const MOCK_CLUBS: Club[] = [
-  {
-    id: "celta-vigo",
-    name: "Celta de Vigo",
-    category: "La Liga",
-    concelloId: "vigo",
-  },
-  {
-    id: "rc-celta-b",
-    name: "RC Celta B",
-    category: "Primera RFEF",
-    concelloId: "vigo",
-  },
-  {
-    id: "gran-pena",
-    name: "Gran Peña FC",
-    category: "Tercera RFEF",
-    concelloId: "vigo",
-  },
-  {
-    id: "compostela",
-    name: "SD Compostela",
-    category: "Segunda RFEF",
-    concelloId: "santiago-de-compostela",
-  },
-  {
-    id: "pontevedra",
-    name: "Pontevedra CF",
-    category: "Segunda RFEF",
-    concelloId: "pontevedra",
-  },
-];
+// Database Fetchers
+export async function getAllClubs(): Promise<Club[]> {
+  const { data, error } = await supabase
+    .from("clubs")
+    .select("*")
+    .order("name");
 
-const MOCK_PLAYERS: Player[] = [
-  {
-    id: "1",
-    clubId: "celta-vigo",
-    name: "Iago Aspas",
-    birthDate: "2006-08-01",
-    position: "Delantero",
-    foot: "Zurdo",
-    rating: 10,
-    description:
-      "Referente de la cantera. Máxima eficacia goleadora y visión de juego excepcional.",
-  },
-  {
-    id: "2",
-    clubId: "celta-vigo",
-    name: "Fran Beltrán",
-    birthDate: "2007-02-03",
-    position: "Centrocampista",
-    foot: "Diestro",
-    rating: 8,
-    description:
-      "Motor del equipo juvenil. Gran capacidad de recuperación y distribución.",
-  },
-  {
-    id: "3",
-    clubId: "rc-celta-b",
-    name: "Hugo Álvarez",
-    birthDate: "2005-07-02",
-    position: "Extremo",
-    foot: "Diestro",
-    rating: 9,
-    description: "Extremo con gran desborde y calidad técnica en el filial.",
-  },
-  {
-    id: "4",
-    clubId: "compostela",
-    name: "Lucas Barreiro",
-    birthDate: "2010-07-08",
-    position: "Delantero",
-    foot: "Diestro",
-    rating: 7,
-    description: "Prometedor delantero infantil con gran juego aéreo.",
-  },
-  {
-    id: "5",
-    clubId: "pontevedra",
-    name: "Charly",
-    birthDate: "2008-05-15",
-    position: "Delantero",
-    foot: "Diestro",
-    rating: 7,
-    description:
-      "Delantero cadete con instinto goleador y movilidad constante.",
-  },
-  {
-    id: "6",
-    clubId: "celta-vigo",
-    name: "Óscar Mingueza",
-    birthDate: "2006-05-13",
-    position: "Defensa",
-    foot: "Diestro",
-    rating: 8,
-    description:
-      "Defensor polivalente con gran salida de balón para el equipo A.",
-  },
-];
+  if (error) {
+    console.error("Error fetching clubs:", error);
+    return [];
+  }
 
-export function getAllClubs(): Club[] {
-  return MOCK_CLUBS;
+  return data.map((club) => ({
+    id: club.id,
+    name: club.name,
+    category: club.category,
+    division: club.division,
+    concelloId: club.concello_id,
+  }));
 }
 
-export function getAllPlayers(): Player[] {
-  return MOCK_PLAYERS;
+export async function getAllPlayers(): Promise<Player[]> {
+  const { data, error } = await supabase
+    .from("players")
+    .select("*")
+    .order("created_at", { ascending: false });
+
+  if (error) {
+    console.error("Error fetching players:", error);
+    return [];
+  }
+
+  return data.map((player) => ({
+    id: player.id,
+    clubId: player.club_id,
+    name: player.name,
+    birthDate: player.birth_date,
+    position: player.position,
+    foot: player.foot,
+    rating: player.rating,
+    description: player.description,
+    imageUrl: player.image_url,
+  }));
 }
 
-// Mock Clubs
-export function getClubsForConcello(concelloId: string): Club[] {
-  return MOCK_CLUBS.filter((club) => club.concelloId === concelloId);
+export async function getClubsForConcello(concelloId: string): Promise<Club[]> {
+  const { data, error } = await supabase
+    .from("clubs")
+    .select("*")
+    .eq("concello_id", concelloId)
+    .order("name");
+
+  if (error) {
+    console.error("Error fetching clubs for concello:", error);
+    return [];
+  }
+
+  return data.map((club) => ({
+    id: club.id,
+    name: club.name,
+    category: club.category,
+    division: club.division,
+    concelloId: club.concello_id,
+  }));
 }
 
-export function getClub(id: string): Club | undefined {
-  return MOCK_CLUBS.find((c) => c.id === id);
+export async function getClub(id: string): Promise<Club | undefined> {
+  const { data, error } = await supabase
+    .from("clubs")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error("Error fetching club:", error);
+    return undefined;
+  }
+
+  return {
+    id: data.id,
+    name: data.name,
+    category: data.category,
+    division: data.division,
+    concelloId: data.concello_id,
+  };
 }
 
-// Mock Players
-export function getPlayersForClub(clubId: string): Player[] {
-  return MOCK_PLAYERS.filter((p) => p.clubId === clubId);
+export async function getPlayersForClub(clubId: string): Promise<Player[]> {
+  const { data, error } = await supabase
+    .from("players")
+    .select("*")
+    .eq("club_id", clubId)
+    .order("name");
+
+  if (error) {
+    console.error("Error fetching players for club:", error);
+    return [];
+  }
+
+  return data.map((player) => ({
+    id: player.id,
+    clubId: player.club_id,
+    name: player.name,
+    birthDate: player.birth_date,
+    position: player.position,
+    foot: player.foot,
+    rating: player.rating,
+    description: player.description,
+    imageUrl: player.image_url,
+  }));
 }

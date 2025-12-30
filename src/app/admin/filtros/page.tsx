@@ -11,8 +11,8 @@ export default async function AdminFiltersPage() {
     redirect("/");
   }
 
-  const allPlayers = getAllPlayers();
-  const allClubs = getAllClubs();
+  const allPlayers = await getAllPlayers();
+  const allClubs = await getAllClubs();
 
   return (
     <main className="min-h-[70vh] flex flex-col items-center">

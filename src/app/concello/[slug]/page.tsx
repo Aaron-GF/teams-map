@@ -32,7 +32,7 @@ export default async function ConcelloPage({ params }: PageProps) {
     notFound();
   }
 
-  const clubs = getClubsForConcello(slug);
+  const clubs = await getClubsForConcello(slug);
 
   return (
     <>

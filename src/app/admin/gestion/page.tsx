@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { getAllClubs, getAllPlayers } from "@/lib/data";
 
 export default async function AdminGestionPage() {
   const session = await getServerSession(authOptions);
@@ -9,6 +10,10 @@ export default async function AdminGestionPage() {
   if (!session) {
     redirect("/");
   }
+
+  // Fetch live stats
+  const clubs = await getAllClubs();
+  const players = await getAllPlayers();
 
   return (
     <main className="min-h-[70vh] flex flex-col items-center">
@@ -85,13 +90,13 @@ export default async function AdminGestionPage() {
           </div>
           <div className="flex gap-12">
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-black">24</span>
+              <span className="text-3xl font-black">{clubs.length}</span>
               <span className="text-[8px] font-bold uppercase tracking-widest opacity-60 italic">
                 Clubes
               </span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-3xl font-black">412</span>
+              <span className="text-3xl font-black">{players.length}</span>
               <span className="text-[8px] font-bold uppercase tracking-widest opacity-60 italic">
                 Jugadores
               </span>

@@ -17,7 +17,7 @@ export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { clubSlug } = await params;
-  const club = getClub(clubSlug);
+  const club = await getClub(clubSlug);
 
   return {
     title: club ? `Jugadores - ${club.name}` : "Club no encontrado",
@@ -27,7 +27,7 @@ export async function generateMetadata({
 export default async function ClubPage({ params }: PageProps) {
   const { slug, clubSlug } = await params;
   const concello = getConcello(slug);
-  const club = getClub(clubSlug);
+  const club = await getClub(clubSlug);
   const session = await getServerSession(authOptions);
 
   // Redirigir si no es admin, ya que esta página es privada
@@ -39,7 +39,7 @@ export default async function ClubPage({ params }: PageProps) {
     notFound();
   }
 
-  const players = getPlayersForClub(clubSlug);
+  const players = await getPlayersForClub(clubSlug);
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col items-center">
