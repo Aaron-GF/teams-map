@@ -92,9 +92,9 @@ export default async function AdminGestionPage() {
             <span className="text-blue-celta uppercase tracking-widest text-[10px] font-black">
               Resumen Actual
             </span>
-            <h3 className="text-2xl font-black uppercase tracking-tighter">
+            <h2 className="text-2xl font-black uppercase tracking-tighter">
               Estadísticas de la Base
-            </h3>
+            </h2>
           </div>
           <div className="flex gap-12">
             <div className="flex flex-col items-center">

@@ -2,8 +2,21 @@
 
 import { supabase } from "./supabase";
 import { revalidatePath } from "next/cache";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth";
+
+async function isAdmin() {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email) return false;
+
+  const allowedEmails = (process.env.ALLOWED_EMAILS || "").split(",");
+  return allowedEmails.includes(session.user.email);
+}
 
 export async function createClub(formData: FormData) {
+  if (!(await isAdmin())) {
+    return { success: false, error: "No autorizado" };
+  }
   const name = formData.get("name") as string;
   const category = formData.get("category") as string;
   const division = formData.get("division") as string;
@@ -30,11 +43,14 @@ export async function createClub(formData: FormData) {
 }
 
 export async function createPlayer(formData: FormData) {
+  if (!(await isAdmin())) {
+    return { success: false, error: "No autorizado" };
+  }
   const name = formData.get("name") as string;
   const clubId = formData.get("clubId") as string;
   const birthDate = formData.get("birthDate") as string;
   const position = formData.get("position") as string;
-  const foot = formData.get("foot") as string;
+  const foot = formData.get("foot") as "Diestro" | "Zurdo";
   const rating = parseInt(formData.get("rating") as string);
   const description = formData.get("description") as string;
   const imageFile = formData.get("image") as File;
@@ -90,6 +106,9 @@ export async function createPlayer(formData: FormData) {
 }
 
 export async function deletePlayer(playerId: string, imageUrl?: string | null) {
+  if (!(await isAdmin())) {
+    return { success: false, error: "No autorizado" };
+  }
   // 1. Borrar imagen del Storage si existe
   if (imageUrl && imageUrl.includes("player-photos")) {
     const fileName = imageUrl.split("/").pop();
@@ -113,6 +132,9 @@ export async function deletePlayer(playerId: string, imageUrl?: string | null) {
 }
 
 export async function deleteClub(clubId: string) {
+  if (!(await isAdmin())) {
+    return { success: false, error: "No autorizado" };
+  }
   const { error } = await supabase.from("clubs").delete().eq("id", clubId);
 
   if (error) {

@@ -3,7 +3,7 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllClubs, concellos } from "@/lib/data";
 import Link from "next/link";
-import DeleteClubButton from "@/components/DeleteClubButton";
+import DeleteClubButton from "@/components/ui/DeleteClubButton";
 
 export default async function ClubListPage() {
   const session = await getServerSession(authOptions);

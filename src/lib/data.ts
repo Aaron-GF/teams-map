@@ -1,34 +1,15 @@
 import { supabase } from "./supabase";
 import municipalitiesData from "@/data/municipalities.json";
-
-export interface Concello {
-  id: string; // Slug para la URL
-  name: string;
-}
-
-export interface Club {
-  id: string;
-  name: string;
-  category: string;
-  division: string;
-  concelloId: string;
-}
-
-export interface Player {
-  id: string;
-  clubId: string;
-  name: string;
-  birthDate: string;
-  position: string;
-  foot: "Diestro" | "Zurdo";
-  rating: number; // 1-10
-  description: string;
-  imageUrl?: string;
-}
+import {
+  type Concello,
+  type Club,
+  type Player,
+  type MunicipalityJSON,
+} from "@/types";
 
 // Concellos are static local data
-const allConcellos: Concello[] = municipalitiesData
-  .map((m: any) => ({
+const allConcellos: Concello[] = (municipalitiesData as MunicipalityJSON[])
+  .map((m) => ({
     id: m.id,
     name: m.name,
   }))

@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { createClub } from "@/lib/actions";
-import { Concello } from "@/lib/data";
+import { type Concello } from "@/types";
+import { FOOTBALL_CATEGORIES } from "@/lib/constants";
 
 interface ClubFormProps {
   concellos: Concello[];
@@ -65,13 +66,11 @@ export default function ClubForm({ concellos }: ClubFormProps) {
               <option value="" disabled>
                 Selecciona categoría
               </option>
-              <option value="Biberón">Biberón</option>
-              <option value="Prebenjamín">Prebenjamín</option>
-              <option value="Benjamín">Benjamín</option>
-              <option value="Alevín">Alevín</option>
-              <option value="Infantil">Infantil</option>
-              <option value="Cadete">Cadete</option>
-              <option value="Juvenil">Juvenil</option>
+              {FOOTBALL_CATEGORIES.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
             </select>
           </div>
 

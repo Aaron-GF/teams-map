@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Player, Club } from "@/lib/data";
+import { type Player, type Club } from "@/types";
 import PlayerCard from "./PlayerCard";
 
 interface AdvancedFiltersProps {

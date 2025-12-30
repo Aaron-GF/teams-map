@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import AdminControls from "./AdminControls";
-import FiltersButton from "./FiltersButton";
-import GestionButton from "./GestionButton";
+import AdminControls from "@/components/ui/AdminControls";
+import FiltersButton from "@/components/ui/FiltersButton";
+import GestionButton from "@/components/ui/GestionButton";
 import { type Session } from "next-auth";
 
 interface NavbarClientProps {
@@ -62,6 +62,7 @@ export default function NavbarClient({ session }: NavbarClientProps) {
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="size-10 bg-white rounded-xl border border-gray-100 shadow-sm flex items-center justify-center text-dark-blue transition-all active:scale-95 overflow-hidden"
+                aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
               >
                 {isMobileMenuOpen ? (
                   <svg

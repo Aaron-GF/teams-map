@@ -57,10 +57,10 @@ export default async function ConcelloPage({ params }: PageProps) {
           {/* Sección de clubes de fútbol */}
           <section className="flex flex-col gap-8 bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100">
             <div className="flex items-center justify-between">
-              <h3 className="text-3xl text-dark-blue uppercase tracking-tighter flex items-center gap-3">
+              <h2 className="text-3xl text-dark-blue uppercase tracking-tighter flex items-center gap-3">
                 <span className="text-red-celta">#</span>
                 Clubes de Fútbol
-              </h3>
+              </h2>
               <div className="h-px flex-1 mx-8 bg-linear-to-r from-blue-celta/20 to-transparent" />
             </div>
 
@@ -97,9 +97,9 @@ export default async function ConcelloPage({ params }: PageProps) {
                 <div className="size-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-2xl">
                   🔒
                 </div>
-                <h4 className="text-xl font-black text-dark-blue uppercase tracking-tight mb-2">
+                <h3 className="text-xl font-black text-dark-blue uppercase tracking-tight mb-2">
                   Acceso Restringido
-                </h4>
+                </h3>
                 <p className="text-gray-500 text-sm max-w-sm mb-8">
                   La información detallada de los clubes y jugadores solo está
                   disponible para usuarios administradores.

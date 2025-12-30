@@ -2,20 +2,8 @@
 
 import { useRouter } from "next/navigation";
 import municipalities from "@/data/municipalities.json";
-
-const COLOR_MAP: Record<string, string> = {
-  "15": "#87ADCE",
-  "27": "#7399BD",
-  "32": "#A5C4DF",
-  "36": "#6CACE4",
-};
-
-const PROVINCE_NAMES: Record<string, string> = {
-  "15": "A Coruña",
-  "27": "Lugo",
-  "32": "Ourense",
-  "36": "Pontevedra",
-};
+import { type MunicipalityJSON } from "@/types";
+import { PROVINCE_COLORS, PROVINCE_NAMES } from "@/lib/constants";
 
 export default function GaliciaMap() {
   const router = useRouter();
@@ -46,25 +34,27 @@ export default function GaliciaMap() {
           </defs>
           <rect width="10000" height="10000" fill="url(#grid)" />
 
-          {municipalities.map((municipality: any) => (
-            <path
-              key={municipality.id}
-              d={municipality.d}
-              onClick={() => router.push(`/concello/${municipality.id}`)}
-              style={{
-                fill: COLOR_MAP[municipality.provinceId] || "#87ADCE",
-                stroke: "#FFFFFF",
-                strokeWidth: "15",
-              }}
-              className="transition-all duration-300 cursor-pointer hover:fill-red-celta! hover:stroke-[#FFFFFF] hover:stroke-40 hover:z-50 focus:outline-none"
-            >
-              <title>
-                {`${municipality.name} (${
-                  PROVINCE_NAMES[municipality.provinceId]
-                })`}
-              </title>
-            </path>
-          ))}
+          {(municipalities as MunicipalityJSON[]).map(
+            (municipality: MunicipalityJSON) => (
+              <path
+                key={municipality.id}
+                d={municipality.d}
+                onClick={() => router.push(`/concello/${municipality.id}`)}
+                style={{
+                  fill: PROVINCE_COLORS[municipality.provinceId] || "#87ADCE",
+                  stroke: "#FFFFFF",
+                  strokeWidth: "15",
+                }}
+                className="transition-all duration-300 cursor-pointer hover:fill-red-celta! hover:stroke-[#FFFFFF] hover:stroke-40 hover:z-50 focus:outline-none"
+              >
+                <title>
+                  {`${municipality.name} (${
+                    PROVINCE_NAMES[municipality.provinceId]
+                  })`}
+                </title>
+              </path>
+            )
+          )}
         </svg>
       </div>
 

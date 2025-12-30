@@ -3,7 +3,7 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllClubs } from "@/lib/data";
 import Link from "next/link";
-import PlayerForm from "@/components/PlayerForm";
+import PlayerForm from "@/components/forms/PlayerForm";
 
 export default async function AdminPlayerFormPage() {
   const session = await getServerSession(authOptions);

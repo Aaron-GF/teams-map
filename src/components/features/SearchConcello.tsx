@@ -73,7 +73,20 @@ export default function SearchConcello() {
           className="w-full pl-14 pr-10 py-4 bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-celta/50 focus:border-blue-celta transition-all text-dark-blue placeholder-gray-400 font-medium"
         />
         <div className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-celta transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" className="size-5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0" strokeWidth={2.5}/></svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            className="size-5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m21 21-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0"
+              strokeWidth={2.5}
+            />
+          </svg>
         </div>
       </div>
 

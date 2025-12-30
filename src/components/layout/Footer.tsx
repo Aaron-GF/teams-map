@@ -14,7 +14,7 @@ export default function Footer() {
                 Teams <span className="text-blue-celta">Map</span>
               </span>
             </Link>
-            <p className="text-sm text-blue-celta/80 leading-relaxed font-medium">
+            <p className="text-sm text-white/80 leading-relaxed font-medium">
               La información sobre los clubes y jugadores de fútbol base de
               Galicia en esta web solo esta disponible para usuarios
               administradores.
@@ -23,9 +23,9 @@ export default function Footer() {
 
           {/* Enlaces Rápidos */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-sm font-black uppercase tracking-widest text-red-celta">
+            <h2 className="text-sm font-black uppercase tracking-widest text-blue-celta">
               Navegación
-            </h4>
+            </h2>
             <nav className="flex flex-col gap-2">
               <Link
                 href="/"
@@ -54,9 +54,9 @@ export default function Footer() {
 
           {/* Créditos/Información */}
           <div className="flex flex-col gap-4 text-right md:text-left">
-            <h4 className="text-sm font-black uppercase tracking-widest text-red-celta">
+            <h2 className="text-sm font-black uppercase tracking-widest text-blue-celta">
               Proyecto
-            </h4>
+            </h2>
             <p className="text-sm text-white/70 leading-normal">
               App desarrollada por{" "}
               <Link
@@ -72,19 +72,19 @@ export default function Footer() {
 
         {/* Barra Inferior */}
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-celta/60">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">
             © {currentYear} Teams Map -{" "}
             <a
               href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-celta hover:text-blue-celta/80 transition-colors"
+              className="text-blue-celta hover:text-blue-celta/80 transition-colors underline decoration-blue-celta/30 underline-offset-4"
               title="Licencia Creative Commons BY-NC-SA 4.0"
             >
               CC BY-NC-SA 4.0
             </a>
           </p>
-          <span className="text-[8px] font-black uppercase tracking-[0.3em] text-white/40">
+          <span className="text-[8px] font-black uppercase tracking-[0.3em] text-white/60">
             Galicia · Deporte · Base
           </span>
         </div>

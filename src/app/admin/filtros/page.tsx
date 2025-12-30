@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { getAllPlayers, getAllClubs } from "@/lib/data";
-import AdvancedFilters from "@/components/AdvancedFilters";
+import AdvancedFilters from "@/components/features/AdvancedFilters";
 
 export default async function AdminFiltersPage() {
   const session = await getServerSession(authOptions);

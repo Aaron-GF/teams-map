@@ -1,10 +1,11 @@
 import { getConcello, getClub, getPlayersForClub } from "@/lib/data";
 import { Metadata } from "next";
-import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import PlayerCard from "@/components/PlayerCard";
+import PlayerCard from "@/components/features/PlayerCard";
+import DeleteClubButton from "@/components/ui/DeleteClubButton";
+import Link from "next/link";
 
 interface PageProps {
   params: Promise<{
@@ -79,9 +80,9 @@ export default async function ClubPage({ params }: PageProps) {
               <div className="size-20 bg-gray-50 rounded-3xl flex items-center justify-center text-4xl opacity-40">
                 📋
               </div>
-              <h3 className="text-xl font-black text-dark-blue uppercase">
+              <h2 className="text-xl font-black text-dark-blue uppercase">
                 Sin jugadores
-              </h3>
+              </h2>
               <p className="text-gray-500 max-w-xs">
                 No se han encontrado registros de jugadores para este club
                 todavía.

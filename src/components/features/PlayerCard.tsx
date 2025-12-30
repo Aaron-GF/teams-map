@@ -1,5 +1,5 @@
-import { Player } from "@/lib/data";
-import DeletePlayerButton from "./DeletePlayerButton";
+import { type Player } from "@/types";
+import DeletePlayerButton from "@/components/ui/DeletePlayerButton";
 
 interface PlayerCardProps {
   player: Player;

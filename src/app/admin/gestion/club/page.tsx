@@ -1,9 +1,9 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
-import { concellos } from "@/lib/data";
 import Link from "next/link";
-import ClubForm from "@/components/ClubForm";
+import { concellos } from "@/lib/data";
+import ClubForm from "@/components/forms/ClubForm";
 
 export default async function AdminClubFormPage() {
   const session = await getServerSession(authOptions);

@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teams Map - Fútbol Base Galicia ⚽
 
-## Getting Started
+**Teams Map** es una plataforma interactiva y profesional diseñada para la gestión, visualización y scouting de clubes y jugadores de fútbol base en Galicia. El proyecto combina una interfaz visual moderna con una infraestructura robusta basada en Supabase.
 
-First, run the development server:
+![Vista Previa del Proyecto](public/screen-capture.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Características Principales
+
+- **🗺️ Mapa Interactivo de Galicia**: Navegación visual a través de un mapa SVG detallado que permite explorar los 313 municipios (concellos) de la comunidad.
+- **🛡️ Panel de Administración Seguro**: Gestión completa de datos (CRUD) para administradores autorizados mediante autenticación con Google.
+- **🏃‍♂️ Gestión de Plantillas**: Registro detallado de jugadores incluyendo fotos, valoraciones técnicas, posiciones y pierna hábil.
+- **🔍 Filtros Avanzados**: Buscador inteligente y filtros multicriterio para localizar perfiles específicos de jugadores y clubes.
+- **📱 Diseño Responsive & Premium**: Interfaz optimizada para móviles, tablets y escritorio con una estética inspirada en el RC Celta de Vigo.
+- **♿ Accesibilidad (WCAG)**: Estructura semántica de encabezados, alto contraste y navegación optimizada para lectores de pantalla.
+
+## 🛠️ Stack Tecnológico
+
+- **Frontend**: [Next.js](https://nextjs.org/) (App Router), [React](https://reactjs.org/), [Tailwind CSS](https://tailwindcss.com/).
+- **Backend & DB**: [Supabase](https://supabase.com/) (PostgreSQL, Storage, Auth).
+- **Autenticación**: [NextAuth.js](https://next-auth.js.org/) con Google Provider.
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/) (100% Type-Safe).
+- **Despliegue**: [Vercel](https://vercel.com/).
+
+## 📂 Estructura del Proyecto
+
+El proyecto sigue una arquitectura modular y escalable:
+
+```text
+src/
+├── app/             # Rutas y páginas (Next.js App Router)
+├── components/      # Componentes organizados por responsabilidad
+│   ├── ui/          # Elementos básicos y botones (Design System)
+│   ├── forms/       # Formularios de lógica compleja
+│   ├── layout/      # Estructura global (Navbar, Footer)
+│   └── features/    # Funcionalidades núcleo (Mapa, Filtros)
+├── lib/             # Lógica compartida, acciones y constantes
+├── types/           # Definiciones globales de TypeScript
+└── data/            # Datos estáticos (GeoJSON de municipios)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Configuración y Ejecución
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clonar el repositorio**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/Aaron-GF/teams-map.git
+   cd teams-map
+   ```
 
-## Learn More
+2. **Instalar dependencias**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Variables de Entorno**:
+   Crea un archivo `.env.local` con las siguientes claves:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```env
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=tu_secreto
+   GOOGLE_CLIENT_ID=...
+   GOOGLE_CLIENT_SECRET=...
+   ALLOWED_EMAILS=email1@gmail.com,email2@gmail.com
+   NEXT_PUBLIC_SUPABASE_URL=...
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+   ```
 
-## Deploy on Vercel
+4. **Ejecutar en desarrollo**:
+   ```bash
+   pnpm dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 Licencia
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Este proyecto está bajo la licencia **CC BY-NC-SA 4.0** (Attribution-NonCommercial-ShareAlike 4.0 International).
+
+---
+
+Desarrollado con ❤️ por [Aaron-GF](https://github.com/Aaron-GF).

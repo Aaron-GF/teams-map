@@ -1,5 +1,5 @@
-import GaliciaMap from "@/components/GaliciaMap";
-import SearchConcello from "@/components/SearchConcello";
+import GaliciaMap from "@/components/features/GaliciaMap";
+import SearchConcello from "@/components/features/SearchConcello";
 
 export default function Home() {
   return (

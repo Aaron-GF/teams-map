@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { createPlayer } from "@/lib/actions";
-import { Club } from "@/lib/data";
+import { type Club } from "@/types";
+import { PLAYER_POSITIONS } from "@/lib/constants";
 
 interface PlayerFormProps {
   clubs: Club[];
@@ -100,15 +101,11 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               <option value="" disabled>
                 Selecciona posición
               </option>
-              <option value="Portero">Portero</option>
-              <option value="Lateral derecho">Lateral derecho</option>
-              <option value="Lateral izquierdo">Lateral izquierdo</option>
-              <option value="Defensa central">Defensa central</option>
-              <option value="Mediocentro">Mediocentro</option>
-              <option value="Interior">Interior</option>
-              <option value="Extremo">Extremo</option>
-              <option value="Delantero">Delantero</option>
-              <option value="Carrilero">Carrilero</option>
+              {PLAYER_POSITIONS.map((pos) => (
+                <option key={pos} value={pos}>
+                  {pos}
+                </option>
+              ))}
             </select>
           </div>
         </div>
