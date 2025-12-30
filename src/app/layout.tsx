@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Providers } from "@/components/Providers";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({
           <Navbar />
           <div className="pt-24 md:pt-28">{children}</div>
           <Footer />
+          <Analytics />
         </Providers>
       </body>
     </html>
