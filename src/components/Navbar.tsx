@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import AdminControls from "./AdminControls";
 import FiltersButton from "./FiltersButton";
+import GestionButton from "./GestionButton";
 import Link from "next/link";
 
 export default async function Navbar() {
@@ -29,9 +30,14 @@ export default async function Navbar() {
           </div>
         </Link>
 
-        {/* Center: Filters (Admin only) */}
-        <div className="hidden md:flex justify-center">
-          {isAuthenticated && <FiltersButton />}
+        {/* Center: Filters & Gestion (Admin only) */}
+        <div className="hidden md:flex justify-center gap-3">
+          {isAuthenticated && (
+            <>
+              <FiltersButton />
+              <GestionButton />
+            </>
+          )}
         </div>
 
         {/* Right: Auth Controls */}

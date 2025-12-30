@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-export default function FiltersButton() {
+export default function GestionButton() {
   return (
     <Link
-      href="/admin/filtros"
+      href="/admin/gestion"
       className="flex items-center gap-2 px-6 py-2.5 bg-white/50 border border-white hover:border-blue-celta/30 hover:bg-white transition-all rounded-2xl shadow-sm group"
     >
       <div className="size-6 rounded-lg bg-linear-to-br from-blue-celta/10 to-dark-blue/10 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -18,12 +18,12 @@ export default function FiltersButton() {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 18H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 12h7.5"
+            d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
       </div>
       <span className="text-[10px] font-black text-dark-blue uppercase tracking-widest hidden md:inline">
-        Filtros
+        Gestión
       </span>
     </Link>
   );
