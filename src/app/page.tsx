@@ -3,7 +3,7 @@ import SearchConcello from "@/components/SearchConcello";
 
 export default function Home() {
   return (
-    <main className="p-4 md:p-8 bg-gray-100 min-h-screen flex flex-col items-center">
+    <main className="p-2 md:p-8 bg-gray-100 min-h-screen flex flex-col items-center">
       <div className="text-center mb-10 max-w-2xl">
         <h1 className="text-4xl font-extrabold mb-4 tracking-tight">
           Fútbol base en Galicia

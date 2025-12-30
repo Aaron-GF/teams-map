@@ -78,18 +78,12 @@ export default function NavbarClient({ session }: NavbarClientProps) {
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
-                ) : session?.user?.image ? (
-                  <img
-                    src={session.user.image}
-                    alt="Profile"
-                    className="size-full object-cover"
-                  />
                 ) : (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    strokeWidth={2}
+                    strokeWidth={2.5}
                     stroke="currentColor"
                     className="size-5"
                   >
@@ -106,35 +100,10 @@ export default function NavbarClient({ session }: NavbarClientProps) {
         </div>
       </nav>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Menu desplegable para moviles */}
       {session && isMobileMenuOpen && (
         <div className="md:hidden mt-3 mx-auto max-w-[calc(100vw-2rem)] animate-in slide-in-from-top-4 fade-in duration-300">
           <div className="bg-white/90 backdrop-blur-xl border border-white/50 shadow-2xl rounded-4xl p-6 flex flex-col gap-4">
-            <div className="flex items-center gap-3 pb-4 border-b border-gray-100">
-              <div className="size-10 rounded-full border-2 border-blue-celta/20 p-0.5">
-                {session.user?.image ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={session.user.image}
-                    alt="User"
-                    className="size-full rounded-full object-cover"
-                  />
-                ) : (
-                  <div className="size-full bg-blue-celta rounded-full flex items-center justify-center text-xs">
-                    🛡️
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-black text-dark-blue uppercase tracking-tight">
-                  {session.user?.name}
-                </span>
-                <span className="text-[10px] font-bold text-blue-celta uppercase tracking-widest">
-                  Admin Galego
-                </span>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 gap-3">
               <Link
                 href="/admin/filtros"
