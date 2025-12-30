@@ -9,6 +9,26 @@ interface AdvancedFiltersProps {
   allClubs: Club[];
 }
 
+function FilterField({
+  label,
+  children,
+  extra,
+}: {
+  label: string;
+  children: React.ReactNode;
+  extra?: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-3">
+      <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
+        {label}
+        {extra}
+      </label>
+      {children}
+    </div>
+  );
+}
+
 export default function AdvancedFilters({
   allPlayers,
   allClubs,
@@ -56,16 +76,22 @@ export default function AdvancedFilters({
   ]);
 
   const positions = Array.from(new Set(allPlayers.map((p) => p.position)));
+  const isFiltered = useMemo(
+    () =>
+      search !== "" ||
+      selectedClub !== "" ||
+      selectedFoot !== "" ||
+      selectedPosition !== "" ||
+      minRating > 0 ||
+      maxAge < 20,
+    [search, selectedClub, selectedFoot, selectedPosition, minRating, maxAge]
+  );
 
   return (
     <div className="flex flex-col gap-12">
       {/* Panel de Filtros */}
       <div className="bg-white rounded-6xl p-4 md:p-12 shadow-2xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Búsqueda por Nombre */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-            Nombre del Jugador
-          </label>
+        <FilterField label="Nombre del Jugador">
           <div className="relative group">
             <input
               type="text"
@@ -77,13 +103,9 @@ export default function AdvancedFilters({
               🔍
             </span>
           </div>
-        </div>
+        </FilterField>
 
-        {/* Filtro de Club */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-            Club / Equipo
-          </label>
+        <FilterField label="Club / Equipo">
           <select
             value={selectedClub}
             onChange={(e) => setSelectedClub(e.target.value)}
@@ -96,17 +118,13 @@ export default function AdvancedFilters({
               </option>
             ))}
           </select>
-        </div>
+        </FilterField>
 
-        {/* Filtro de Posición */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-            Posición
-          </label>
+        <FilterField label="Posición">
           <select
             value={selectedPosition}
             onChange={(e) => setSelectedPosition(e.target.value)}
-            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
+            className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
           >
             <option value="">Cualquier posición</option>
             {positions.map((pos) => (
@@ -115,13 +133,9 @@ export default function AdvancedFilters({
               </option>
             ))}
           </select>
-        </div>
+        </FilterField>
 
-        {/* Filtro de Pierna */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-            Pierna Hábil
-          </label>
+        <FilterField label="Pierna Hábil">
           <div className="flex gap-2">
             {["", "Diestro", "Zurdo"].map((foot) => (
               <button
@@ -137,13 +151,12 @@ export default function AdvancedFilters({
               </button>
             ))}
           </div>
-        </div>
+        </FilterField>
 
-        {/* Filtro de Valoración */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
-            Valoración Mínima <span>{minRating}+</span>
-          </label>
+        <FilterField
+          label="Valoración Mínima"
+          extra={<span className="text-blue-celta">{minRating}+</span>}
+        >
           <input
             type="range"
             min="0"
@@ -153,31 +166,22 @@ export default function AdvancedFilters({
             onChange={(e) => setMinRating(Number(e.target.value))}
             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-blue-celta"
           />
-          <div className="flex justify-between text-[8px] font-bold text-gray-300 uppercase tracking-widest">
-            <span>Amateur</span>
-            <span>Élite</span>
-          </div>
-        </div>
+        </FilterField>
 
-        {/* Filtro de Edad */}
-        <div className="flex flex-col gap-3">
-          <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
-            Edad Máxima <span>{maxAge} años</span>
-          </label>
+        <FilterField
+          label="Edad Máxima"
+          extra={<span className="text-blue-celta">{maxAge} años</span>}
+        >
           <input
             type="range"
-            min="5"
+            min="4"
             max="20"
             step="1"
             value={maxAge}
             onChange={(e) => setMaxAge(Number(e.target.value))}
             className="w-full h-2 bg-gray-100 rounded-lg appearance-none cursor-pointer accent-blue-celta"
           />
-          <div className="flex justify-between text-[8px] font-bold text-gray-300 uppercase tracking-widest">
-            <span>Prebenjamín</span>
-            <span>Juvenil</span>
-          </div>
-        </div>
+        </FilterField>
       </div>
 
       {/* Sección de Resultados */}
@@ -192,12 +196,7 @@ export default function AdvancedFilters({
             </span>
           </div>
 
-          {(search ||
-            selectedClub ||
-            selectedFoot ||
-            selectedPosition ||
-            minRating > 0 ||
-            maxAge < 20) && (
+          {isFiltered && (
             <button
               onClick={() => {
                 setSearch("");
