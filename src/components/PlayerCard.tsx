@@ -7,7 +7,7 @@ interface PlayerCardProps {
 export default function PlayerCard({ player }: PlayerCardProps) {
   return (
     <div className="w-full bg-white rounded-[2.5rem] p-6 md:p-8 shadow-xl border border-gray-100 flex flex-col md:flex-row gap-8 transition-all hover:shadow-2xl hover:scale-[1.01]">
-      {/* Player Photo/Avatar */}
+      {/* Foto/Avatar del Jugador */}
       <div className="relative shrink-0 flex justify-center md:block">
         <div className="size-32 md:size-40 bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 shadow-inner flex items-center justify-center">
           {player.imageUrl ? (
@@ -23,7 +23,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
         </div>
       </div>
 
-      {/* Player Info */}
+      {/* Información del Jugador */}
       <div className="flex-1 flex flex-col gap-6">
         <div className="border-b border-gray-100 pb-4">
           <h4 className="text-2xl md:text-3xl font-black text-dark-blue uppercase tracking-tighter">

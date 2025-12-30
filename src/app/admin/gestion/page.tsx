@@ -11,14 +11,14 @@ export default async function AdminGestionPage() {
     redirect("/");
   }
 
-  // Fetch live stats
+  // Obtener estadísticas en vivo
   const clubs = await getAllClubs();
   const players = await getAllPlayers();
 
   return (
     <main className="min-h-[70vh] flex flex-col items-center">
       <div className="max-w-6xl w-full px-6 py-12 flex flex-col gap-12">
-        {/* Header Section */}
+        {/* Sección de Cabecera */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
@@ -31,9 +31,9 @@ export default async function AdminGestionPage() {
           </h1>
         </div>
 
-        {/* Management Placeholder UI */}
+        {/* Interfaz de Gestión */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Add Club Section */}
+          {/* Sección Añadir Club */}
           <section className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-6 group hover:scale-[1.02] transition-all">
             <div className="size-16 bg-blue-celta/10 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
               ⚽
@@ -55,7 +55,7 @@ export default async function AdminGestionPage() {
             </Link>
           </section>
 
-          {/* Add Player Section */}
+          {/* Sección Añadir Jugador */}
           <section className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-6 group hover:scale-[1.02] transition-all">
             <div className="size-16 bg-red-celta/10 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
               🏃‍♂️
@@ -78,7 +78,7 @@ export default async function AdminGestionPage() {
           </section>
         </div>
 
-        {/* Stats / Overview Section Placeholder */}
+        {/* Sección de Estadísticas / Resumen */}
         <div className="bg-dark-blue rounded-4xl p-10 text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col gap-1">
             <span className="text-blue-celta uppercase tracking-widest text-[10px] font-black">

@@ -130,7 +130,7 @@ export default function AdminControls({
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={userImage}
-                    alt={userName || "User"}
+                    alt={userName || "Usuario"}
                     className="size-7 rounded-full border border-white shadow-sm"
                   />
                 ) : (

@@ -17,7 +17,7 @@ export default async function AdminPlayerFormPage() {
   return (
     <main className="min-h-[70vh] flex flex-col items-center">
       <div className="max-w-4xl w-full px-6 py-12 flex flex-col gap-10">
-        {/* Breadcrumbs / Back navigation */}
+        {/* Navegación de Vuelta */}
         <Link
           href="/admin/gestion"
           className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-celta hover:translate-x-[-4px] transition-transform w-fit"
@@ -25,7 +25,7 @@ export default async function AdminPlayerFormPage() {
           ← Volver al Panel de Gestión
         </Link>
 
-        {/* Header Section */}
+        {/* Sección de Cabecera */}
         <div className="flex flex-col gap-2">
           <div className="flex items-center gap-3">
             <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
@@ -38,7 +38,7 @@ export default async function AdminPlayerFormPage() {
           </h1>
         </div>
 
-        {/* Form Component */}
+        {/* Componente del Formulario */}
         <PlayerForm clubs={allClubs} />
       </div>
     </main>

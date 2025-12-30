@@ -24,7 +24,7 @@ export default function ClubForm({ concellos }: ClubFormProps) {
     setLoading(false);
     if (result.success) {
       setMessage({ type: "success", text: "¡Club registrado con éxito!" });
-      // Reset form (this is a bit tricky with native FormData, but we can target the form)
+      // Reiniciar el formulario
       const form = document.getElementById("club-form") as HTMLFormElement;
       form?.reset();
     } else {

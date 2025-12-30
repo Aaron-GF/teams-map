@@ -41,7 +41,7 @@ export async function createPlayer(formData: FormData) {
 
   let imageUrl = null;
 
-  // Handle image upload if a file was provided
+  // Gestionar la subida de imagen si se proporcionó un archivo
   if (imageFile && imageFile.size > 0) {
     const fileExt = imageFile.name.split(".").pop();
     const fileName = `${Math.random()

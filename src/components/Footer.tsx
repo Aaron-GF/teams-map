@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="w-full bg-dark-blue border-t border-white/10 text-white mt-auto">
       <div className="max-w-6xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand Section */}
+          {/* Sección de Marca */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2">
               <span className="text-xl font-black uppercase tracking-tighter">
@@ -15,11 +15,13 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-blue-celta/80 leading-relaxed font-medium">
-              La información sobre los clubes y jugadores de fútbol base de Galicia en esta web solo esta disponible para usuarios administradores.
+              La información sobre los clubes y jugadores de fútbol base de
+              Galicia en esta web solo esta disponible para usuarios
+              administradores.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Enlaces Rápidos */}
           <div className="flex flex-col gap-4">
             <h4 className="text-sm font-black uppercase tracking-widest text-red-celta">
               Navegación
@@ -50,7 +52,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Credits/Info */}
+          {/* Créditos/Información */}
           <div className="flex flex-col gap-4 text-right md:text-left">
             <h4 className="text-sm font-black uppercase tracking-widest text-red-celta">
               Proyecto
@@ -68,7 +70,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Barra Inferior */}
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-celta/60">
             © {currentYear} Teams Map -{" "}

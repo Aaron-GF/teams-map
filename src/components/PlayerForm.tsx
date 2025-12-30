@@ -24,6 +24,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
     setLoading(false);
     if (result.success) {
       setMessage({ type: "success", text: "¡Jugador registrado con éxito!" });
+      // Reiniciar el formulario
       const form = document.getElementById("player-form") as HTMLFormElement;
       form?.reset();
     } else {

@@ -59,9 +59,9 @@ export default function AdvancedFilters({
 
   return (
     <div className="flex flex-col gap-12">
-      {/* Filters Dashboard */}
+      {/* Panel de Filtros */}
       <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-2xl border border-gray-100 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Name Search */}
+        {/* Búsqueda por Nombre */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
             Nombre del Jugador
@@ -79,7 +79,7 @@ export default function AdvancedFilters({
           </div>
         </div>
 
-        {/* Club Filter */}
+        {/* Filtro de Club */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
             Club / Equipo
@@ -98,7 +98,7 @@ export default function AdvancedFilters({
           </select>
         </div>
 
-        {/* Position Filter */}
+        {/* Filtro de Posición */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
             Posición
@@ -117,7 +117,7 @@ export default function AdvancedFilters({
           </select>
         </div>
 
-        {/* Foot Filter */}
+        {/* Filtro de Pierna */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
             Pierna Hábil
@@ -139,7 +139,7 @@ export default function AdvancedFilters({
           </div>
         </div>
 
-        {/* Rating Filter */}
+        {/* Filtro de Valoración */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
             Valoración Mínima <span>{minRating}+</span>
@@ -155,11 +155,11 @@ export default function AdvancedFilters({
           />
           <div className="flex justify-between text-[8px] font-bold text-gray-300 uppercase tracking-widest">
             <span>Amateur</span>
-            <span>Elite</span>
+            <span>Élite</span>
           </div>
         </div>
 
-        {/* Age Filter */}
+        {/* Filtro de Edad */}
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
             Edad Máxima <span>{maxAge} años</span>
@@ -180,7 +180,7 @@ export default function AdvancedFilters({
         </div>
       </div>
 
-      {/* Results Section */}
+      {/* Sección de Resultados */}
       <div className="flex flex-col gap-6">
         <div className="flex items-center justify-between px-2">
           <div className="flex flex-col">
