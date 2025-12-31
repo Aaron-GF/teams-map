@@ -192,7 +192,7 @@ export default function AdvancedFilters({
               Resultados Encontrados
             </h3>
             <span className="text-[10px] font-bold text-blue-celta uppercase tracking-widest">
-              {filteredPlayers.length} jugadores coinciden con tu búsqueda
+              {filteredPlayers.length} {filteredPlayers.length === 1 ? "jugador coincide" : "jugadores coinciden"} con tu búsqueda
             </span>
           </div>
 

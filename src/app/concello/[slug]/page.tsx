@@ -73,8 +73,16 @@ export default async function ConcelloPage({ params }: PageProps) {
                       href={`/concello/${slug}/club/${club.id}`}
                       className="group bg-gray-50 rounded-3xl p-6 border border-gray-100 transition-all hover:bg-blue-celta/5 hover:border-blue-celta/30 hover:scale-[1.02] flex items-center gap-6"
                     >
-                      <div className="size-16 rounded-2xl shadow-sm flex items-center justify-center border border-gray-100 group-hover:border-blue-celta/20 transition-colors bg-white">
-                        <div className="size-8 rounded-full bg-linear-to-br from-blue-celta to-dark-blue opacity-20" />
+                      <div className="size-16 rounded-2xl shadow-sm flex items-center justify-center border border-gray-100 group-hover:border-blue-celta/20 transition-colors bg-white overflow-hidden shrink-0">
+                        {club.imageUrl ? (
+                          <img
+                            src={club.imageUrl}
+                            alt={club.name}
+                            className="w-full h-full object-contain p-2"
+                          />
+                        ) : (
+                          <div className="size-8 rounded-full bg-linear-to-br from-blue-celta to-dark-blue opacity-20" />
+                        )}
                       </div>
                       <div className="flex flex-col">
                         <span className="text-lg font-black text-dark-blue leading-tight">

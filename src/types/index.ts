@@ -22,6 +22,8 @@ export interface Player {
   rating: number;
   description: string;
   imageUrl?: string | null;
+  clubName?: string;
+  clubCategory?: string;
 }
 
 export interface MunicipalityJSON {

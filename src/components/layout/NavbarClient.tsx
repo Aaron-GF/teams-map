@@ -28,7 +28,7 @@ export default function NavbarClient({ session }: NavbarClientProps) {
               Teams Map
             </span>
             <span className="text-[7px] font-bold text-blue-celta uppercase tracking-[0.2em] leading-none mt-1">
-              Galicia Base
+              Futbol Base Galicia
             </span>
           </div>
         </Link>

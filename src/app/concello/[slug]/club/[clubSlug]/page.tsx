@@ -4,8 +4,6 @@ import { notFound, redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import PlayerCard from "@/components/features/PlayerCard";
-import DeleteClubButton from "@/components/ui/DeleteClubButton";
-import Link from "next/link";
 
 interface PageProps {
   params: Promise<{
@@ -44,8 +42,8 @@ export default async function ClubPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-transparent flex flex-col items-center">
-      <div className="max-w-5xl w-full px-2 md:px-6 py-8 flex flex-col gap-10">
-        <div className="flex items-center gap-4 text-sm font-bold text-gray-400 mb-2">
+      <div className="max-w-5xl w-full px-2 md:px-6 py-8 flex flex-col">
+        <div className="flex items-center gap-4 text-sm font-bold text-gray-400 mb-6">
           <span className="text-blue-celta uppercase tracking-[0.2em]">
             {concello.name}
           </span>
@@ -55,18 +53,31 @@ export default async function ClubPage({ params }: PageProps) {
           </span>
         </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-gray-100 pb-8">
-          <div className="flex flex-col gap-2">
-            <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
-              Plantilla de jugadores
-            </span>
-            <h1 className="text-4xl md:text-6xl text-dark-blue uppercase tracking-tighter leading-none">
-              {club.name}
-            </h1>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-gray-100 mb-10">
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-6 text-center md:text-left">
+            <div className="size-24 md:size-32 bg-white rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 p-3">
+              {club.imageUrl ? (
+                <img
+                  src={club.imageUrl}
+                  alt={club.name}
+                  className="size-full object-contain"
+                />
+              ) : (
+                <span className="text-4xl md:text-5xl opacity-20">🛡️</span>
+              )}
+            </div>
+            <div className="flex flex-col my-auto gap-2">
+              <span className="text-dark-blue uppercase tracking-widest text-[10px] md:text-xs font-black">
+                {club.category} <br />
+                {club.division}
+              </span>
+            </div>
           </div>
-          <span className="px-4 py-2 bg-white rounded-2xl shadow-sm border border-gray-100 text-sm font-bold text-dark-blue/60">
-            {players.length} {players.length === 1 ? "jugador" : "jugadores"}{" "}
-            registrados
+          <span className="px-5 py-3 bg-white rounded-2xl shadow-sm border border-gray-100 text-xs text-dark-blue/60 uppercase">
+            {players.length}{" "}
+            {players.length === 1
+              ? "jugador registrado"
+              : "jugadores registrados"}
           </span>
         </div>
 
@@ -84,8 +95,7 @@ export default async function ClubPage({ params }: PageProps) {
                 Sin jugadores
               </h2>
               <p className="text-gray-500 max-w-xs">
-                No se han encontrado registros de jugadores para este club
-                todavía.
+                No se han encontrado registros de jugadores para este equipo.
               </p>
             </div>
           )}

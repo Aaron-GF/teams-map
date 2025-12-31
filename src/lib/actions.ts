@@ -164,7 +164,27 @@ export async function deleteClub(clubId: string, imageUrl?: string | null) {
     return { success: false, error: "No autorizado" };
   }
 
-  // 1. Borrar imagen del Storage si existe
+  // 1. Comprobar si hay jugadores asociados (Seguridad manual adicional)
+  const { data: players, error: checkError } = await supabase
+    .from("players")
+    .select("id")
+    .eq("club_id", clubId)
+    .limit(1);
+
+  if (checkError) {
+    console.error("Error al comprobar jugadores:", checkError);
+    return { success: false, error: "Error al verificar integridad de datos" };
+  }
+
+  if (players && players.length > 0) {
+    return {
+      success: false,
+      error:
+        "No se puede eliminar el club porque tiene jugadores asociados. Elimina primero a los jugadores.",
+    };
+  }
+
+  // 2. Borrar imagen del Storage si existe
   if (imageUrl && imageUrl.includes("club-shields")) {
     const fileName = imageUrl.split("/").pop();
     if (fileName) {
@@ -172,7 +192,7 @@ export async function deleteClub(clubId: string, imageUrl?: string | null) {
     }
   }
 
-  // 2. Borrar de la Base de Datos
+  // 3. Borrar de la Base de Datos
   const { error } = await supabase.from("clubs").delete().eq("id", clubId);
 
   if (error) {

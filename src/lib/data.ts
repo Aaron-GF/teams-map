@@ -46,7 +46,7 @@ export async function getAllClubs(): Promise<Club[]> {
 export async function getAllPlayers(): Promise<Player[]> {
   const { data, error } = await supabase
     .from("players")
-    .select("*")
+    .select("*, clubs(name, category)")
     .order("created_at", { ascending: false });
 
   if (error) {
@@ -64,6 +64,8 @@ export async function getAllPlayers(): Promise<Player[]> {
     rating: player.rating,
     description: player.description,
     imageUrl: player.image_url,
+    clubName: (player.clubs as any)?.name,
+    clubCategory: (player.clubs as any)?.category,
   }));
 }
 
@@ -114,7 +116,7 @@ export async function getClub(id: string): Promise<Club | undefined> {
 export async function getPlayersForClub(clubId: string): Promise<Player[]> {
   const { data, error } = await supabase
     .from("players")
-    .select("*")
+    .select("*, clubs(name, category)")
     .eq("club_id", clubId)
     .order("name");
 
@@ -133,5 +135,7 @@ export async function getPlayersForClub(clubId: string): Promise<Player[]> {
     rating: player.rating,
     description: player.description,
     imageUrl: player.image_url,
+    clubName: (player.clubs as any)?.name,
+    clubCategory: (player.clubs as any)?.category,
   }));
 }

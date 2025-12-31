@@ -85,7 +85,7 @@ export default async function AdminGestionPage() {
             <div className="flex flex-col items-center">
               <span className="text-3xl font-black">{clubs.length}</span>
               <span className="text-[8px] font-bold uppercase tracking-widest opacity-60 italic">
-                Clubes
+                Equipos
               </span>
             </div>
             <div className="flex flex-col items-center">
