@@ -126,7 +126,7 @@ export default function ClubForm({ concellos }: ClubFormProps) {
             <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
               Escudo del Equipo
             </label>
-            <div className="flex items-center gap-6 p-6 bg-gray-50 border border-gray-100 rounded-xl transition-all focus-within:bg-white focus-within:border-blue-celta/30">
+            <div className="flex flex-col md:flex-row items-center gap-6 p-6 bg-gray-50 border border-gray-100 rounded-xl transition-all focus-within:bg-white focus-within:border-blue-celta/30 overflow-hidden">
               <div className="relative size-20 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
                 {preview ? (
                   <img
@@ -138,15 +138,13 @@ export default function ClubForm({ concellos }: ClubFormProps) {
                   <span className="text-2xl opacity-20">🛡️</span>
                 )}
               </div>
-              <div className="flex flex-col gap-2 flex-1">
-                <input
-                  name="shield"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="text-xs font-bold text-dark-blue file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-dark-blue file:text-white hover:file:bg-blue-celta file:transition-all cursor-pointer"
-                />
-              </div>
+              <input
+                name="shield"
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
+                className="text-xs font-bold text-dark-blue file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-dark-blue file:text-white hover:file:bg-blue-celta file:transition-all cursor-pointer w-full overflow-hidden"
+              />
             </div>
           </div>
         </div>

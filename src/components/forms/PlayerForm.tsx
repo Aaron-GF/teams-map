@@ -160,12 +160,12 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
             Foto del Jugador
           </label>
-          <div className="relative group">
+          <div className="relative group overflow-hidden">
             <input
               name="image"
               type="file"
               accept="image/*"
-              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-blue-celta/10 file:text-blue-celta hover:file:bg-blue-celta/20 transition-all cursor-pointer outline-hidden"
+              className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-2xl text-sm font-bold text-dark-blue file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-blue-celta/10 file:text-blue-celta hover:file:bg-blue-celta/20 transition-all cursor-pointer outline-hidden overflow-hidden"
             />
           </div>
         </div>
