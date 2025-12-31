@@ -15,6 +15,20 @@ export default function ClubForm({ concellos }: ClubFormProps) {
     type: "success" | "error";
     text: string;
   } | null>(null);
+  const [preview, setPreview] = useState<string | null>(null);
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setPreview(null);
+    }
+  };
 
   async function handleSubmit(formData: FormData) {
     setLoading(true);
@@ -28,6 +42,7 @@ export default function ClubForm({ concellos }: ClubFormProps) {
       // Reiniciar el formulario
       const form = document.getElementById("club-form") as HTMLFormElement;
       form?.reset();
+      setPreview(null);
     } else {
       setMessage({ type: "error", text: `Error: ${result.error}` });
     }
@@ -43,7 +58,7 @@ export default function ClubForm({ concellos }: ClubFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-3">
             <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
-              Nombre del Club <span>*</span>
+              Nombre del Equipo <span>*</span>
             </label>
             <input
               name="name"
@@ -106,6 +121,34 @@ export default function ClubForm({ concellos }: ClubFormProps) {
               ))}
             </select>
           </div>
+
+          <div className="flex flex-col gap-3 md:col-span-2">
+            <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
+              Escudo del Equipo
+            </label>
+            <div className="flex items-center gap-6 p-6 bg-gray-50 border border-gray-100 rounded-xl transition-all focus-within:bg-white focus-within:border-blue-celta/30">
+              <div className="relative size-20 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0">
+                {preview ? (
+                  <img
+                    src={preview}
+                    alt="Vista previa del escudo"
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <span className="text-2xl opacity-20">🛡️</span>
+                )}
+              </div>
+              <div className="flex flex-col gap-2 flex-1">
+                <input
+                  name="shield"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                  className="text-xs font-bold text-dark-blue file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-[10px] file:font-black file:uppercase file:tracking-widest file:bg-dark-blue file:text-white hover:file:bg-blue-celta file:transition-all cursor-pointer"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {message && (
@@ -126,7 +169,7 @@ export default function ClubForm({ concellos }: ClubFormProps) {
             disabled={loading}
             className="w-full py-5 bg-dark-blue text-white rounded-3xl text-[11px] font-black uppercase tracking-[0.2em] shadow-xl shadow-dark-blue/20 hover:bg-blue-celta transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? "Registrando..." : "Registrar Club"}
+            {loading ? "Registrando..." : "Registrar Equipo"}
           </button>
           <p className="text-center text-[9px] font-bold text-gray-300 uppercase tracking-widest">
             Los campos marcados con (*) son obligatorios

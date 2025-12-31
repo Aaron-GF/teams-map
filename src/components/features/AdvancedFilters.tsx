@@ -227,9 +227,7 @@ export default function AdvancedFilters({
                 Sin coincidencias
               </h4>
               <p className="text-gray-400 text-sm font-medium">
-                No se han encontrado jugadores que cumplan con los criterios.{" "}
-                <br />
-                Prueba a flexibilizar los filtros.
+                No se han encontrado jugadores que cumplan con los criterios.
               </p>
             </div>
           </div>

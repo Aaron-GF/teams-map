@@ -6,11 +6,13 @@ import { deleteClub } from "@/lib/actions";
 interface DeleteClubButtonProps {
   clubId: string;
   clubName: string;
+  imageUrl?: string | null;
 }
 
 export default function DeleteClubButton({
   clubId,
   clubName,
+  imageUrl,
 }: DeleteClubButtonProps) {
   const [isDeleting, setIsDeleting] = useState(false);
 
@@ -24,7 +26,7 @@ export default function DeleteClubButton({
     }
 
     setIsDeleting(true);
-    const result = await deleteClub(clubId);
+    const result = await deleteClub(clubId, imageUrl);
     setIsDeleting(false);
 
     if (!result.success) {

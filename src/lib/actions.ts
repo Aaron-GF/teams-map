@@ -21,6 +21,33 @@ export async function createClub(formData: FormData) {
   const category = formData.get("category") as string;
   const division = formData.get("division") as string;
   const concelloId = formData.get("concelloId") as string;
+  const imageFile = formData.get("shield") as File;
+
+  let imageUrl = null;
+
+  // Gestionar la subida de imagen si se proporcionó un archivo
+  if (imageFile && imageFile.size > 0) {
+    const fileExt = imageFile.name.split(".").pop();
+    const fileName = `${Math.random()
+      .toString(36)
+      .substring(2)}-${Date.now()}.${fileExt}`;
+    const filePath = `${fileName}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from("club-shields")
+      .upload(filePath, imageFile);
+
+    if (uploadError) {
+      console.error("Error uploading shield:", uploadError);
+      return { success: false, error: "Error al subir el escudo a Storage" };
+    }
+
+    const { data } = supabase.storage
+      .from("club-shields")
+      .getPublicUrl(filePath);
+
+    imageUrl = data.publicUrl;
+  }
 
   const { error } = await supabase.from("clubs").insert([
     {
@@ -28,6 +55,7 @@ export async function createClub(formData: FormData) {
       category,
       division,
       concello_id: concelloId,
+      image_url: imageUrl,
     },
   ]);
 
@@ -131,10 +159,20 @@ export async function deletePlayer(playerId: string, imageUrl?: string | null) {
   return { success: true };
 }
 
-export async function deleteClub(clubId: string) {
+export async function deleteClub(clubId: string, imageUrl?: string | null) {
   if (!(await isAdmin())) {
     return { success: false, error: "No autorizado" };
   }
+
+  // 1. Borrar imagen del Storage si existe
+  if (imageUrl && imageUrl.includes("club-shields")) {
+    const fileName = imageUrl.split("/").pop();
+    if (fileName) {
+      await supabase.storage.from("club-shields").remove([fileName]);
+    }
+  }
+
+  // 2. Borrar de la Base de Datos
   const { error } = await supabase.from("clubs").delete().eq("id", clubId);
 
   if (error) {

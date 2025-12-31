@@ -10,7 +10,7 @@
 - **🛡️ Panel de Administración Seguro**: Gestión completa de datos (CRUD) para administradores autorizados mediante autenticación con Google.
 - **🏃‍♂️ Gestión de Plantillas**: Registro detallado de jugadores incluyendo fotos, valoraciones técnicas, posiciones y pierna hábil.
 - **🔍 Filtros Avanzados**: Buscador inteligente y filtros multicriterio para localizar perfiles específicos de jugadores y clubes.
-- **📱 Diseño Responsive & Premium**: Interfaz optimizada para móviles, tablets y escritorio con una estética inspirada en el RC Celta de Vigo.
+- **📱 Diseño Responsive & Premium**: Interfaz optimizada para móviles, tablets y escritorio.
 - **♿ Accesibilidad (WCAG)**: Estructura semántica de encabezados, alto contraste y navegación optimizada para lectores de pantalla.
 
 ## 🛠️ Stack Tecnológico

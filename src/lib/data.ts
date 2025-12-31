@@ -39,6 +39,7 @@ export async function getAllClubs(): Promise<Club[]> {
     category: club.category,
     division: club.division,
     concelloId: club.concello_id,
+    imageUrl: club.image_url,
   }));
 }
 
@@ -84,6 +85,7 @@ export async function getClubsForConcello(concelloId: string): Promise<Club[]> {
     category: club.category,
     division: club.division,
     concelloId: club.concello_id,
+    imageUrl: club.image_url,
   }));
 }
 
@@ -105,6 +107,7 @@ export async function getClub(id: string): Promise<Club | undefined> {
     category: data.category,
     division: data.division,
     concelloId: data.concello_id,
+    imageUrl: data.image_url,
   };
 }
 

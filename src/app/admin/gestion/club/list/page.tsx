@@ -25,20 +25,7 @@ export default async function ClubListPage() {
           ← Volver al Panel de Gestión
         </Link>
 
-        {/* Sección de Cabecera */}
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3">
-            <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
-              Gestión de Base
-            </span>
-            <div className="h-px flex-1 bg-linear-to-r from-blue-celta/20 to-transparent" />
-          </div>
-          <h1 className="text-4xl md:text-5xl text-dark-blue uppercase tracking-tighter leading-none">
-            Listado de Clubes
-          </h1>
-        </div>
-
-        {/* Listado de Clubes */}
+        {/* Listado de equipos */}
         <div className="bg-white rounded-6xl p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-4">
           {allClubs.length > 0 ? (
             <div className="flex flex-col gap-2">
@@ -51,16 +38,33 @@ export default async function ClubListPage() {
                     key={club.id}
                     className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl border border-gray-100 group hover:border-blue-celta/30 transition-all"
                   >
-                    <div className="flex flex-col">
-                      <span className="text-lg font-black text-dark-blue uppercase tracking-tight">
-                        {club.name}
-                      </span>
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">
-                        {club.category} • {club.division} •{" "}
-                        {concello?.name || club.concelloId}
-                      </span>
+                    <div className="flex items-center gap-4">
+                      <div className="size-12 rounded-xl bg-white border border-gray-100 flex items-center justify-center overflow-hidden shrink-0 shadow-sm group-hover:shadow-md transition-all">
+                        {club.imageUrl ? (
+                          <img
+                            src={club.imageUrl}
+                            alt={club.name}
+                            className="w-full h-full object-contain p-1"
+                          />
+                        ) : (
+                          <span className="text-xl opacity-20">🛡️</span>
+                        )}
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-lg font-black text-dark-blue uppercase tracking-tight">
+                          {club.name}
+                        </span>
+                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest italic">
+                          {club.category} • {club.division} •{" "}
+                          {concello?.name || club.concelloId}
+                        </span>
+                      </div>
                     </div>
-                    <DeleteClubButton clubId={club.id} clubName={club.name} />
+                    <DeleteClubButton
+                      clubId={club.id}
+                      clubName={club.name}
+                      imageUrl={club.imageUrl}
+                    />
                   </div>
                 );
               })}
@@ -69,7 +73,7 @@ export default async function ClubListPage() {
             <div className="text-center py-10 flex flex-col items-center gap-4">
               <span className="text-4xl opacity-20">🛡️</span>
               <p className="text-gray-500 font-medium">
-                No hay clubes registrados todavía.
+                No hay equipos registrados todavía.
               </p>
             </div>
           )}

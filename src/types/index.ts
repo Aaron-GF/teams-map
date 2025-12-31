@@ -9,6 +9,7 @@ export interface Club {
   category: string;
   division: string;
   concelloId: string;
+  imageUrl?: string | null;
 }
 
 export interface Player {
@@ -40,6 +41,7 @@ export type Database = {
           category: string;
           division: string;
           concello_id: string;
+          image_url: string | null;
           created_at: string;
         };
         Insert: {
@@ -48,6 +50,7 @@ export type Database = {
           category: string;
           division: string;
           concello_id: string;
+          image_url?: string | null;
           created_at?: string;
         };
         Update: {
@@ -56,6 +59,7 @@ export type Database = {
           category?: string;
           division?: string;
           concello_id?: string;
+          image_url?: string | null;
           created_at?: string;
         };
         Relationships: [];

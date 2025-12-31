@@ -55,7 +55,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
 
           <div className="flex flex-col gap-3">
             <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
-              Club / Equipo <span>*</span>
+              Equipo <span>*</span>
             </label>
             <select
               name="clubId"
@@ -64,7 +64,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
               className="w-full px-6 py-4 bg-gray-50 border border-gray-100 rounded-xl text-sm font-bold text-dark-blue focus:bg-white focus:border-blue-celta/30 transition-all outline-hidden appearance-none"
             >
               <option value="" disabled>
-                Selecciona club
+                Selecciona equipo
               </option>
               {clubs.map((club) => (
                 <option key={club.id} value={club.id}>
@@ -113,7 +113,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="flex flex-col gap-3">
             <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-              Pierna Hábil <span>*</span>
+              Lateralidad <span>*</span>
             </label>
             <div className="flex gap-4">
               {["Diestro", "Zurdo"].map((foot) => (
@@ -135,7 +135,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
 
           <div className="flex flex-col gap-3 text-center md:text-left">
             <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1">
-              Valoración General (1-10) <span>*</span>
+              Valoración <span>*</span>
             </label>
             <div className="flex gap-2 justify-between">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
@@ -158,7 +158,7 @@ export default function PlayerForm({ clubs }: PlayerFormProps) {
 
         <div className="flex flex-col gap-3">
           <label className="text-[10px] font-black text-dark-blue uppercase tracking-widest italic ml-1 flex justify-between">
-            Foto del Jugador (Opcional)
+            Foto del Jugador
           </label>
           <div className="relative group">
             <input

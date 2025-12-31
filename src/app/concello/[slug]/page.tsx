@@ -59,7 +59,7 @@ export default async function ConcelloPage({ params }: PageProps) {
             <div className="flex items-center justify-between">
               <h2 className="text-3xl text-dark-blue uppercase tracking-tighter flex items-center gap-3">
                 <span className="text-red-celta">#</span>
-                Clubes de Fútbol
+                Equipos de Fútbol
               </h2>
               <div className="h-px flex-1 mx-8 bg-linear-to-r from-blue-celta/20 to-transparent" />
             </div>
@@ -88,7 +88,7 @@ export default async function ConcelloPage({ params }: PageProps) {
                   ))
                 ) : (
                   <div className="col-span-full py-12 text-center text-gray-400 font-medium">
-                    No hay clubes registrados todavía en este municipio.
+                    No hay equipos registrados todavía en este municipio.
                   </div>
                 )}
               </div>

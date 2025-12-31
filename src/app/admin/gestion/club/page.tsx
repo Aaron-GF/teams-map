@@ -23,19 +23,6 @@ export default async function AdminClubFormPage() {
           ← Volver al Panel de Gestión
         </Link>
 
-        {/* Sección de Cabecera */}
-        <div className="flex flex-col gap-2">
-          <div className="flex items-center gap-3">
-            <span className="text-blue-celta uppercase tracking-[0.3em] text-[10px] font-black">
-              Gestión de Base
-            </span>
-            <div className="h-px flex-1 bg-linear-to-r from-blue-celta/20 to-transparent" />
-          </div>
-          <h1 className="text-4xl md:text-5xl text-dark-blue uppercase tracking-tighter leading-none">
-            Nuevo Club Deportivo
-          </h1>
-        </div>
-
         {/* Componente del Formulario */}
         <ClubForm concellos={concellos} />
       </div>
