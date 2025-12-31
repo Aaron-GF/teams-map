@@ -26,7 +26,7 @@ export default async function ClubListPage() {
         </Link>
 
         {/* Listado de equipos */}
-        <div className="bg-white rounded-6xl p-8 md:p-12 shadow-2xl border border-gray-100 flex flex-col gap-4">
+        <div className="bg-white rounded-6xl p-2 md:p-6 shadow-2xl border border-gray-100 flex flex-col gap-4">
           {allClubs.length > 0 ? (
             <div className="flex flex-col gap-2">
               {allClubs.map((club) => {
