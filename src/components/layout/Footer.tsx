@@ -42,7 +42,7 @@ export default function Footer() {
                 Sobre el Proyecto
               </Link>
               <Link
-                href="www.linkedin.com/in/aaron-garcia-fernandez"
+                href="https://www.linkedin.com/in/aaron-garcia-fernandez/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-white/70 hover:text-blue-celta transition-colors"
